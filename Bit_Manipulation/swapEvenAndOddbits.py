@@ -1,0 +1,9 @@
+n=int(input())
+oddmask=0x55555555
+evenMask=0xAAAAAAAA
+presvE=n&evenMask
+presvO=n&oddmask
+presvE=presvE>>1
+presvO=presvO<<1
+ans=presvO|presvE
+print(ans)
