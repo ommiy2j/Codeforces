@@ -9,3 +9,12 @@ if c==1:
     print('true')
 else:
     print('false')
+
+
+# 2nd Method
+
+def ispOwerOf2(n):
+    if n & (n - 1) == 0:
+        print('true')
+    else:
+        print('false')
