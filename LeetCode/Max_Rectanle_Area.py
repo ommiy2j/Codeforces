@@ -5,7 +5,7 @@ class Solution:
         top=0
         maxA=0
         while(i<len(l)):
-            if len(stack)==0 or l[top]<=l[i]:
+            if len(stack)==0 or l[stack[-1]]<=l[i]:
                 stack.append(i)
                 top=i
                 i+=1
@@ -40,15 +40,17 @@ class Solution:
             temp.append(int(m[0][i]))
         c=0
         maxT=0
+        for i in temp:
+            if i==1:
+                c+=1
+                if c>maxT:
+                    maxT=c
+            else:
+                c=0
         if len(m)==1:
-            for i in temp:
-                if i==1:
-                    c+=1
-                    if c>maxT:
-                        maxT=c
-                else:
-                    c=0
             return maxT
+        if maxT>maxA:
+            maxA=maxT
         for i in range(1,len(m)):
             for j in range(len(m[i])):
                 if int(m[i][j])==1:
@@ -56,7 +58,7 @@ class Solution:
                 else:
                     temp[j]=0
             x=self.histogram(temp)
-            if x>=maxA:
+            if x>maxA:
                 maxA=x
                     
         return maxA
