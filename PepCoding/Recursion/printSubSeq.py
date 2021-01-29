@@ -1,4 +1,4 @@
-def printSubSS(s,ans=""):
+def printSubSS(s,ans):
     if len(s)==0:
         print(ans)
         return
